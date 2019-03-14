@@ -1,0 +1,53 @@
+   <div class="w3-margin">
+    <div class="w3-container w3-padding-32">
+      <h3 class="w3-border-bottom w3-border-light-grey w3-padding-12">Техника по переработке ягод, фруктов и овощей</h3>
+      <p>Предлагаем линии по переработке ягод, фруктов и овощей любой модификации по Вашим индивидуальным
+        требованиям. Изготовим проект по Вашему заказу. Линии компактные, простые и доступные в обслуживании.</p>
+    </div>
+
+    <div class="w3-row-padding" *ngFor="let i of linesRows">
+      <div class="w3-col l3 m6 w3-padding" *ngFor="let line of lines | slice:(i*4):(i+1)*4" (click)="linesModal(line)">
+        <div class="w3-display-container" style="cursor:pointer">
+          <div class="w3-display-topleft w3-black w3-padding w3-opacity-min">
+            {{ line.name }}
+          </div>
+          <img src="img/lines/{{ line.img }}_1.jpg" style="width:100%">
+          <div class="w3-display-bottomleft w3-display-hover w3-black w3-padding w3-opacity-min">
+            {{ line.desc }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="modalLine" class="w3-modal" onclick="this.style.display='none'">
+      <span class="w3-padding w3-hover-red w3-display-topright" style="cursor:pointer">&times;</span>
+      <div class="w3-modal-content w3-animate-zoom">
+        <img class="w3-left" id="lineImg" src='' style="width:40%;max-height:400px">
+        <div class="w3-right w3-small w3-white" style="width:60%;min-height:400px;">
+          <div class="w3-padding" id="lineText"></div>
+          <div class="w3-padding">
+            Возможно изготовление оборудования любой модификации по индивидуальным требованиям покупателя.
+            Так-же можем сделать проект по Вашему заказу. Цену уточняйте.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-container w3-padding-32 w3-color-dark-grey">
+      <h3 class="w3-border-bottom w3-border-light-grey w3-padding-12">Мини линии по переработке фруктов</h3>
+      <p>Переработка ягод, овощей и фруктов в скором времени будет все более и более востребованным бизнесом.
+        Поскольку при росте урбанизации в странах постсоветского пространства, городской житель не имеет возможности
+        и главное времени самому собирать и уж тем более заготавливать ягоды, фрукты или овощи.
+        Ему гораздо удобнее будет посетить кафе или фреш-маркет.</p>
+      <p>Мини завод по переработке ягод, овощей и фруктов — бизнес идея, которая может принести стабильный доход владельцу,
+        при правильном планировании сбыта и реализации продукции в рестораны, гипермаркеты или магазины.
+        Мини цех по переработке овощей, на котором будет установлено оборудование для переработки фруктов и ягод
+        от европейских производителей вполне по карману сейчас среднему бизнесу.
+        Мы поможем Вас сделать проект и изготовить конвеерные линии по переработке ягод, фруктов и овощей.</p>
+      <p>
+        Вас также могут заинтересовать 
+        <a routerLink="/" title="для уборки малины, черники, смородины">универсальный ягодоуборочный комбайн</a>
+        или <a routerLink="/комбайны_для_уборки_бобовых" title="фасолеуборочные комбайны">техника для уборки бобовых</a>
+      </p>
+    </div>
+   </div>

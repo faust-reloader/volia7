@@ -1,0 +1,7 @@
+.w3-center {
+    background: url('/assets/kokan/tag.png') center no-repeat;
+}
+.w3-modal {
+    display: block;
+    background: rgba(211, 211, 211, 0.6);
+}

@@ -1,20 +1,25 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div class="w3-top w3-bar w3-card-2 w3-wide w3-white w3-padding">
+  <div class="w3-left">
+    <a routerLink="/" class="w3-button" (click)="setTitle('Комбайн для уборки ягод')"><b>СФГ</b> Воля</a>
+  </div>
+  <div class="w3-right">
+    <a routerLink="/переработка_ягод_фруктов_овощей" class="w3-button w3-bar-item"
+       (click)="setTitle('Переработка ягод')">Ягоды</a>
+    <a routerLink="/комбайны_для_уборки_бобовых" class="w3-button w3-bar-item" (click)="setTitle('Техника для уборки фасоли')">Фасоль</a>
+    <a routerLink="/контакты" class="w3-button w3-bar-item" (click)="setTitle('Контакты')">Контакты</a>
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
-
+<router-outlet (deactivate)="onDeactivate()"></router-outlet>
+<footer class="w3-center w3-black w3-padding" id=contact>
+  <p>
+    <span class="w3-show-inline-block">КФХ „Воля”, 08436, Украина, Киевская область, Переяслав-Хмельницкий р-н,</span>
+    <span class="w3-show-inline-block">Стовпьязкий сельсовет, урочище Чаплин, ул. Озерная, дом.1,</span>
+    <br>
+    <span class="w3-show-inline-block">Код 20597514, Р/р 26004000051182, МФО 300023, ПАТ «Укрсоцбанк»,</span>
+    <span class="w3-show-inline-block">Тел/факс (04567) 5-84-14, 5-35-10, e-mail: <u>{{ 'sfgvolia'+'@'+'ukr.net' }}</u></span>
+  </p>
+</footer>
+<div id="modalKokan" class="w3-modal w3-center" (click)="closeModal()">
+  <span class="w3-padding w3-hover-red w3-display-topright" style="cursor:pointer">&times;</span>
+  <img id="kokanImg" src='' class="w3-animate-zoom w3-image">
+</div>
