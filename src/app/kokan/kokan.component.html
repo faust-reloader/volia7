@@ -44,7 +44,7 @@
       </table>
     </div>
     <div class="w3-half w3-padding">
-      <div class="myvideo">
+      <div class="video-container">
         <iframe type="text/html" width="563" height="317"
                 src="https://www.youtube.com/embed/1-4wNoRVvoI?autoplay=0&rel=0&modestbrending=0"
                 frameborder="0" allowfullscreen></iframe>
@@ -95,5 +95,7 @@
 
 <div *ngIf="needBigImg" class="w3-modal w3-center">
   <span class="w3-padding w3-yellow w3-hover-red w3-display-topright cursor-pointer" (click)="hideBigImg()">&times;</span>
+  <span class="w3-button w3-display-left w3-padding w3-green cursor-pointer" (click)="changeBigImg(-1)">&#10094;</span>
+  <span class="w3-button w3-display-right w3-padding w3-green cursor-pointer" (click)="changeBigImg(+1)">&#10095;</span>
   <img src="assets/kokan/{{bigImg}}.jpg" class="w3-animate-zoom w3-image">
 </div>
