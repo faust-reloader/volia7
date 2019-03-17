@@ -8,7 +8,7 @@ import {Component, OnInit} from '@angular/core';
 
 export class KokanComponent implements OnInit {
     private needBigImg: boolean;
-    private bigImg: string;
+    private bigImg: number;
     private imgArray: Array<number>;
     private imgSlides: Array<Array<number>>;
     private currentImg: number;
@@ -28,7 +28,7 @@ export class KokanComponent implements OnInit {
         this.currentSlide = (this.currentSlide + n + l) % l;
     }
 
-    showBigImg(img: string) {
+    showBigImg(img: number) {
         this.bigImg = img;
         this.needBigImg = true;
     }
