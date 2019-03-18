@@ -508,27 +508,43 @@ const lines = [
 })
 
 export class LinesComponent implements OnInit {
-    private lines: object;
-    private linesRows: Array<number>;
+    private lines: Array<object>;
+    private linesGrid: Array<Array<object>>;
+    private needLine: boolean;
+    private currentLine: object;
+    // private currentLineIndex: number;
+    private currentLineImages: Array<number>;
+    private currentLineList: Array<string>;
+    private currentLineBigImg: number;
 
     ngOnInit() {
+        this.linesGrid = [];
+        this.currentLineBigImg = 1;
         this.lines = lines;
-        this.linesRows = Array.from(Array(Math.ceil(lines.length % 4)).keys());
-        console.log(this.linesRows);
+        for (let i = 0; i < Math.ceil(this.lines.length / 4); i++) {
+            this.linesGrid[i] = this.lines.slice((i * 4), (i * 4) + 4);
+        }
     }
 
-    linesModal(line: any) {
-        document.getElementById('modalLine').style.display = 'block';
-        document.getElementById('lineImg').innerHTML = '<img id=img1 src="assets/lines/' + line.img + '_1.jpg"' +
-            ' style="width:100%;max-height:400px">';
-        if (line.imgNum > 1) {
-            for (let i = 1; i <= line.imgNum; i++) {
-                document.getElementById('lineImg').innerHTML += '<img src="assets/lines/' + line.img + '_' + i + '.jpg"' +
-                    ' style="width:33.333%;cursor:pointer" onclick="document.getElementById(\'img1\').src=this.src">';
-            }
+    showLine(line: object) {
+
+        this.currentLine = line;
+        this.currentLineImages = [];
+        // this.currentLineImages = [...Array(this.currentLine.imgNum).keys()];
+        for (let i = 1; i <= this.currentLine['imgNum']; i++) {
+            this.currentLineImages.push(i);
         }
-        document.getElementById('lineText').innerHTML = '<ul>'
-            + line.list.split(`     `).join('<li><b>').split(':').join(':</b>') + '</ul>' + line.text;
+        this.currentLineList = this.currentLine['list'].split('     ');
+        this.needLine = true;
+        console.log(this);
+    }
+
+    hideLine() {
+        this.needLine = false;
+    }
+
+    changeImg(i) {
+        this.currentLineBigImg = i;
     }
 
 }

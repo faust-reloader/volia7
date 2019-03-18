@@ -16,11 +16,13 @@ export class KokanComponent implements OnInit {
 
     ngOnInit(): void {
         this.needBigImg = false;
-        // needs automation
-        this.imgArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
-        this.imgSlides = [[1, 2], [3, 4], [5, 6], [7, 8], [9, 10], [11, 12], [13, 14], [15, 16]];
         this.currentImg = 0;
         this.currentSlide = 0;
+        this.imgArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+        this.imgSlides = [];
+        for (let i = 0; i < Math.ceil(this.imgArray.length / 2); i++) {
+            this.imgSlides[i] = this.imgArray.slice((i * 2), (i * 2) + 2);
+        }
     }
 
     changeSlide(n: number) {
