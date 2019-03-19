@@ -500,6 +500,14 @@ const lines = [
     }
 ];
 
+export interface Line {
+    name: string;
+    img: string;
+    imgNum: number;
+    desc: string;
+    list: string;
+    text: string;
+}
 
 @Component({
     selector: 'app-lines',
@@ -508,39 +516,31 @@ const lines = [
 })
 
 export class LinesComponent implements OnInit {
-    private lines: Array<object>;
-    private linesGrid: Array<Array<object>>;
+    private lines: Array<Line>;
     private needLine: boolean;
-    private currentLine: object;
-    // private currentLineIndex: number;
+    private currentLine: Line;
     private currentLineImages: Array<number>;
-    private currentLineList: Array<string>;
+    private currentLineList: Array<Array<string>>;
     private currentLineBigImg: number;
 
     ngOnInit() {
-        this.linesGrid = [];
         this.currentLineBigImg = 1;
         this.lines = lines;
-        for (let i = 0; i < Math.ceil(this.lines.length / 4); i++) {
-            this.linesGrid[i] = this.lines.slice((i * 4), (i * 4) + 4);
-        }
     }
 
-    showLine(line: object) {
-
-        this.currentLine = line;
+    showLine(index: number) {
+        this.currentLine = this.lines[index];
         this.currentLineImages = [];
-        // this.currentLineImages = [...Array(this.currentLine.imgNum).keys()];
-        for (let i = 1; i <= this.currentLine['imgNum']; i++) {
+        for (let i = 1; i <= this.currentLine.imgNum; i++) {
             this.currentLineImages.push(i);
         }
-        this.currentLineList = this.currentLine['list'].split('     ');
+        this.currentLineList = this.currentLine.list.trim().split('     ').map(x => x.split(':'));
         this.needLine = true;
-        console.log(this);
     }
 
     hideLine() {
         this.needLine = false;
+        this.currentLineBigImg = 1;
     }
 
     changeImg(i) {
