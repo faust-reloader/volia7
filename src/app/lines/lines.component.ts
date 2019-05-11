@@ -552,7 +552,7 @@ export class LinesComponent implements OnInit {
 
     changeLine(n: number) {
         const l = this.linesArray.length;
-        this.currentLineIndex = (this.currentLineIndex + n + l) % l;
-        this.showLine(this.currentLineIndex);
+        const i = (this.currentLineIndex + n + l) % l;
+        this.showLine(i);
     }
 }
