@@ -27,9 +27,9 @@
               (click)="changeLine(+1)">&#10095;</span>
         <div class="w3-modal-content w3-animate-zoom">
             <div class="w3-left w3-white">
-                <img src="assets/lines/{{currentLine.img}}_{{currentLineBigImg}}.jpg" class="w3-image">
+                <img src="assets/lines/{{currentLine.code}}_{{currentLineBigImg}}.jpg" class="w3-image">
                 <img *ngFor="let i of currentLineImages"
-                     src="assets/lines/{{currentLine.img}}_{{i}}.jpg"
+                     src="assets/lines/{{currentLine.code}}_{{i}}.jpg"
                      class="w3-hover-opacity cursor-pointer" (click)="changeImg(i)">
             </div>
             <div class="w3-right w3-small w3-white">

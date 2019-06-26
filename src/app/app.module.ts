@@ -8,12 +8,14 @@ import {PageNotFoundComponent} from './404/404.component';
 import {ContactComponent} from './contact/contact.component';
 import {SharedModule} from './shared/shared.module';
 import {LinesComponent} from './lines/lines.component';
+import {BeanComponent} from './bean/bean.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         KokanComponent,
         LinesComponent,
+        BeanComponent,
         ContactComponent,
         PageNotFoundComponent
     ],
