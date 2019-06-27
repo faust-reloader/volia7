@@ -1,4 +1,4 @@
-.w3-margin .w3-quarter:nth-child(4n+2) {
+.w3-margin .w3-col:nth-child(4n+2) {
     clear: left;
 }
 
@@ -7,20 +7,6 @@
     background: rgba(0, 0, 0, 0.5);
 }
 
-.w3-modal .w3-left {
-    width: 40%;
-}
-
-.w3-modal .w3-left .w3-image {
-    max-height: 400px;
-}
-
-.w3-modal .w3-left .w3-hover-opacity {
-    width: 33.333%;
-}
-
-.w3-modal .w3-right {
-    width: 60%;
-    min-height: 400px;
-    text-align: left;
+.w3-image {
+    max-height: 400px
 }

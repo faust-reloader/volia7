@@ -6,19 +6,19 @@
             требованиям. Изготовим проект по Вашему заказу. Линии компактные, простые и доступные в обслуживании.</p>
     </div>
 
-    <div class="w3-quarter w3-padding" *ngFor="let line of linesArray; let i = index" (click)="showLine(i)">
+    <div class="w3-col l3 m6 w3-padding" *ngFor="let line of linesArray; let i = index" (click)="showLine(i)">
         <div class="w3-display-container cursor-pointer">
             <div class="w3-display-topleft w3-black w3-padding w3-opacity-min">
                 {{ line.name }}
             </div>
-            <img src="assets/lines/{{ line.img }}_1.jpg" class="w3-image">
+            <img src="assets/lines/{{ line.code }}_1.jpg" class="w3-image">
             <div class="w3-display-bottomleft w3-display-hover w3-black w3-padding w3-opacity-min">
                 {{ line.desc }}
             </div>
         </div>
     </div>
 
-    <div *ngIf="needLine" class="w3-modal w3-center w3-animate-opacity">
+    <div *ngIf="needLine" class="w3-modal w3-animate-opacity">
         <span class="w3-padding w3-yellow w3-hover-red w3-display-topright cursor-pointer"
               (click)="hideLine()">&times;</span>
         <span class="w3-button w3-display-left w3-padding w3-green cursor-pointer"
@@ -26,23 +26,22 @@
         <span class="w3-button w3-display-right w3-padding w3-green cursor-pointer"
               (click)="changeLine(+1)">&#10095;</span>
         <div class="w3-modal-content w3-animate-zoom">
-            <div class="w3-left w3-white">
+            <div class="w3-center w3-white w3-half">
                 <img src="assets/lines/{{currentLine.code}}_{{currentLineBigImg}}.jpg" class="w3-image">
-                <img *ngFor="let i of currentLineImages"
-                     src="assets/lines/{{currentLine.code}}_{{i}}.jpg"
-                     class="w3-hover-opacity cursor-pointer" (click)="changeImg(i)">
+                <div *ngIf="currentLine.imgNum > 1">
+                    <img *ngFor="let i of currentLineImages"
+                         src="assets/lines/{{currentLine.code}}_{{i}}.jpg"
+                         class="w3-hover-opacity cursor-pointer w3-third"
+                         (click)="changeImg(i)">
+                </div>
             </div>
-            <div class="w3-right w3-small w3-white">
-                <div class="w3-padding">
-                    <ul>
-                        <li *ngFor="let item of currentLineList"><b>{{item[0]}}:</b>{{item[1]}}</li>
-                    </ul>
-                    {{currentLine.text}}
-                </div>
-                <div class="w3-padding">
-                    Возможно изготовление оборудования любой модификации по индивидуальным требованиям покупателя.
-                    Так-же можем сделать проект по Вашему заказу. Цену уточняйте.
-                </div>
+            <div class="w3-right w3-small w3-white w3-padding w3-half">
+                <ul>
+                    <li *ngFor="let item of currentLineList"><b>{{item[0]}}:</b>{{item[1]}}</li>
+                </ul>
+                <p>{{currentLine.text}}</p>
+                <p> Возможно изготовление оборудования любой модификации по индивидуальным требованиям покупателя.
+                    Так-же можем сделать проект по Вашему заказу. Цену уточняйте.</p>
             </div>
         </div>
     </div>

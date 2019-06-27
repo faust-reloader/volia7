@@ -8,20 +8,41 @@
             Надежные фасолеуборочные комбайны, косилки для срезания бобовых, мини комбайны для уборки фасоли
             являються ледером отрасли, при этом они легки в обслуживании и эксплуатации</p>
     </div>
-    <div *ngFor="let i of beanRows" class="w3-row-padding">
-        <div (click)="cardClick()">
-            <img src="./assets/bean/{{ bean.code }}_1.jpg" alt="{{ bean.name }}" style="width:100%">
-            <h3>{{ bean.name }}</h3>
-            <p class="w3-green">{{ bean.func }}</p>
-            <p class="w3-small">{{ bean.desc }}</p>
+
+    <div class="w3-col l3 m6 w3-padding"
+         *ngFor="let harvester of harvestersArray; let i = index"
+         (click)="showHarvester(i)">
+        <div class="w3-display-container cursor-pointer">
+            <img src="./assets/bean/{{ harvester.code }}_1.jpg" alt="{{ harvester.name }}" class="w3-image">
+            <h3>{{ harvester.name }}</h3>
+            <p class="w3-green">{{ harvester.func }}</p>
+            <p class="w3-small">{{ harvester.desc }}</p>
         </div>
-        <!--<app-bean-card class="w3-left w3-col l3 m6 w3-padding cursor-pointer"-->
-        <!--*ngFor="let Bean of beanHarvesters | slice:(i*4):(i+1)*4"-->
-        <!--[bean]=Bean-->
-        <!--routerLink="/комбайны_для_уборки_бобовых/{{Bean.code}}"-->
-        <!--(click)="setTitle(Bean.name)">-->
-        <!--</app-bean-card>-->
     </div>
+
+    <div *ngIf="needHarvester" class="w3-modal w3-center w3-animate-opacity">
+        <span class="w3-padding w3-yellow w3-hover-red w3-display-topright cursor-pointer"
+              (click)="hideHarvester()">&times;</span>
+        <span class="w3-button w3-display-left w3-padding w3-green cursor-pointer"
+              (click)="changeHarvester(-1)">&#10094;</span>
+        <span class="w3-button w3-display-right w3-padding w3-green cursor-pointer"
+              (click)="changeHarvester(+1)">&#10095;</span>
+        <div class="w3-modal-content w3-animate-zoom">
+            <div class="w3-left w3-white w3-half">
+                <img src="assets/bean/{{currentHarvester.code}}_{{currentHarvesterBigImg}}.jpg" class="w3-image">
+                <div *ngIf="currentHarvester.imgNum > 1">
+                    <img *ngFor="let i of currentHarvesterImages"
+                         src="assets/bean/{{currentHarvester.code}}_{{i}}.jpg"
+                         class="w3-hover-opacity cursor-pointer w3-third w3-image"
+                         (click)="changeImg(i)">
+                </div>
+            </div>
+            <div class="w3-right w3-small w3-white w3-padding w3-half"
+                 [innerHTML]="currentHarvester.text">
+            </div>
+        </div>
+    </div>
+
     <div class="w3-container w3-padding-32">
         <h3 class="w3-border-bottom w3-border-light-grey w3-padding-12">Гарантия и обслуживание</h3>
         <p>
