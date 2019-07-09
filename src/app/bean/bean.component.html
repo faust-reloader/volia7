@@ -40,7 +40,7 @@
             </div>
             <div class="w3-half w3-right w3-left-align w3-small w3-white w3-padding">
                 <h3>{{ currentHarvester.name }}</h3>
-                <div [innerHTML]="html | safe: 'html'"></div>
+                <div [innerHTML]="currentHarvester.text | safe: 'html'"></div>
             </div>
         </div>
     </div>

@@ -26,11 +26,27 @@ export class BeanComponent implements OnInit {
     private currentHarvester: Harvester;
     private currentHarvesterBigImg: number;
     private currentHarvesterImages: Array<number>;
-    private html: string;
+
+    public constructor(private titleService: Title ) { }
+
+    public setTitle( newTitle: string) {
+        this.titleService.setTitle( newTitle );
+    }
+
+    // constructor(private router: Router,
+    //            private route: ActivatedRoute,
+    //            private titleService: Title) {
+    // }
+    // showModal(id) {
+    //     if (id) {
+    //         this.displayModal = id;
+    //     }
+    // }
 
     ngOnInit() {
         this.currentHarvesterBigImg = 1;
         this.harvestersArray = beanHarvesters;
+        //this.route.paramMap.subscribe(pmap => this.showModal(pmap.get('id')));
     }
 
     showHarvester(index: number) {
@@ -42,12 +58,13 @@ export class BeanComponent implements OnInit {
         }
         this.currentHarvesterBigImg = 1;
         this.needHarvester = true;
-        this.html = this.currentHarvester.text;
+        this.setTitle( this.currentHarvester.name );
     }
 
     hideHarvester() {
         this.needHarvester = false;
         this.currentHarvesterBigImg = 1;
+        this.setTitle( 'Техника для уборки фасоли' );
     }
 
     changeImg(i) {
@@ -61,33 +78,7 @@ export class BeanComponent implements OnInit {
     }
 
 
-    // beanHarvesters;
-    // beanRows: number[];
-    // displayModal: string;
-    //
-    // constructor(private router: Router,
-    //             private route: ActivatedRoute,
-    //             private titleService: Title) {
-    // }
-    //
-    // ngOnInit() {
-    //     // this.route.paramMap.subscribe(pmap => this.showModal(pmap.get('id')));
-    //     this.beanHarvesters = beanHarvesters;
-    //     this.beanRows = Array.from(Array(Math.ceil(beanHarvesters.length / 4)).keys());
-    // }
-    //
-    // // showModal(id) {
-    // //     if (id) {
-    // //         this.displayModal = id;
-    // //     }
-    // // }
-    // //
-    // // closeModal() {
-    // //     this.displayModal = '';
-    // // }
-    // //
-    // // setTitle( newTitle: string) {
-    // //     this.titleService.setTitle( newTitle );
-    // // }
+
+
 
 }
