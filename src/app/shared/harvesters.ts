@@ -52,18 +52,18 @@ export const beanHarvesters = [
         text: `<p>Double Master II - это универсальный комбайн для сбора сухих бобов и арахиса.
       Комбайн дает Вам возможность собирать фасоль, независимо от погодных и полевых условий,
       что позволит Вам собирать качественный продукт, который Вы заслуживаете.</p>
-      <div class="myvideo">
+      <div class="video-container">
         <iframe width="698" height="418" src="https://www.youtube.com/embed/np5DSUz5YF8" frameborder="0" allowfullscreen></iframe>
       </div>
       <p>Система умной плавучести (а smart flotation system) следует контурам почвы,
       чтобы обеспечить постоянную высоту сборщика. Эта система увеличивает скорость сбора продукции,
       а также снижает попадание грязи и камней в рабочие органы комбайна.
-      <div class="myvideo">
+      <div class="video-container">
         <iframe width="698" height="418" src="https://www.youtube.com/embed/ZnxXqF162RE" frameborder="0" allowfullscreen></iframe>
       </div>
       <p>Благодаря фирменной системе обмолота Active Flow, блок обмолота может быть настроен на любое состояния посевов,
       не ставя под угрозу качество уборки.
-      <div class="myvideo">
+      <div class="video-container">
         <iframe width="698" height="418" src="https://www.youtube.com/embed/FxS-kHUgNuU" frameborder="0" allowfullscreen></iframe>
       </div>
       <p>Требования:</p>
@@ -108,13 +108,13 @@ export const beanHarvesters = [
       <p>Double Master IV – это универсальный комбайн для сбора сухих бобов и арахиса.
       Комбайн дает Вам возможность собирать фасоль, независимо от погодных и полевых условий,
       что позволит Вам собирать качественный продукт, который Вы заслуживаете.</p>      
-      <div class="myvideo">
+      <div class="video-container">
         <iframe width="536" height="354" src="https://www.youtube.com/embed/9HdKSfoThVs" frameborder="0" allowfullscreen></iframe>
       </div>
       <p>Система умной плавучести (а smart flotation system) следует контурам почвы,
         чтобы обеспечить постоянную высоту сборщика. Эта система увеличивает скорость сбора продукции,
         а также снижает попадание грязи и камней в рабочие органы комбайна.</p>
-      <div class="myvideo">
+      <div class="video-container">
         <iframe width="536" height="354" src="https://www.youtube.com/embed/FxS-kHUgNuU" frameborder="0" allowfullscreen></iframe>
       </div>
       <p>Спецификации Double Master IV:</p>
@@ -157,7 +157,7 @@ export const beanHarvesters = [
         text: `<p>Manual Master представляет собой простой в эксплуатации ручной подающий блок для мобильного обмолота.
       Эта машина позволяет задействовать механизированную уборку для производителей с небольшими участками земли,
       обеспечивая эффективный и чистый обмолот сухих бобов и арахиса.</p>
-      <div class="myvideo">
+      <div class="video-container">
         <iframe width="536" height="354" src="https://www.youtube.com/embed/ualH365Up9w" frameborder="0" allowfullscreen></iframe>
       </div>
       <p>Требования:</p>

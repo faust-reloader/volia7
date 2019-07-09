@@ -4,35 +4,6 @@ import {Title} from '@angular/platform-browser';
 
 import {beanHarvesters} from '../shared/harvesters';
 
-
-import { Pipe, PipeTransform } from '@angular/core';
-import { DomSanitizer, SafeHtml, SafeStyle, SafeScript, SafeUrl, SafeResourceUrl } from '@angular/platform-browser';
-
-@Pipe({
-    name: 'safe'
-})
-export class SafePipe implements PipeTransform {
-
-    constructor(protected sanitizer: DomSanitizer) {}
-
-    public transform(value: any, type: string): SafeHtml | SafeStyle | SafeScript | SafeUrl | SafeResourceUrl {
-        switch (type) {
-            case 'html':
-                return this.sanitizer.bypassSecurityTrustHtml(value);
-            case 'style':
-                return this.sanitizer.bypassSecurityTrustStyle(value);
-            case 'script':
-                return this.sanitizer.bypassSecurityTrustScript(value);
-            case 'url':
-                return this.sanitizer.bypassSecurityTrustUrl(value);
-            case 'resourceUrl':
-                return this.sanitizer.bypassSecurityTrustResourceUrl(value);
-            default:
-                throw new Error(`Invalid safe type specified: ${type}`);
-        }
-    }
-}
-
 export interface Harvester {
     name: string;
     code: string;
@@ -55,6 +26,7 @@ export class BeanComponent implements OnInit {
     private currentHarvester: Harvester;
     private currentHarvesterBigImg: number;
     private currentHarvesterImages: Array<number>;
+    private html: string;
 
     ngOnInit() {
         this.currentHarvesterBigImg = 1;
@@ -70,6 +42,7 @@ export class BeanComponent implements OnInit {
         }
         this.currentHarvesterBigImg = 1;
         this.needHarvester = true;
+        this.html = this.currentHarvester.text;
     }
 
     hideHarvester() {
