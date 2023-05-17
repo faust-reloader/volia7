@@ -1,0 +1,29 @@
+@import "w3.css";
+
+header {min-width: 100%}
+
+.w3-top {font-family: "Segoe UI",Arial,sans-serif;}
+
+.video-container {
+    position:relative;
+    padding-bottom:52%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+    border:1px solid #ccc;
+}
+.video-container iframe,.video-container object,.video-container embed {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}

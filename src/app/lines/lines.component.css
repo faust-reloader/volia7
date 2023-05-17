@@ -1,0 +1,12 @@
+.w3-margin .w3-col:nth-child(4n+2) {
+    clear: left;
+}
+
+.w3-modal {
+    display: block;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.w3-image {
+    max-height: 400px
+}

@@ -1,0 +1,21 @@
+<div class="w3-top w3-bar w3-card-2 w3-wide w3-white w3-padding">
+  <div class="w3-left">
+    <a routerLink="/" class="w3-button" (click)="setTitle('Комбайн для уборки ягод')"><b>СФГ</b> Воля</a>
+  </div>
+  <div class="w3-right">
+    <a routerLink="/переработка_ягод_фруктов_овощей" class="w3-button w3-bar-item"
+       (click)="setTitle('Переработка ягод')">Ягоды</a>
+    <a routerLink="/комбайны_для_уборки_бобовых" class="w3-button w3-bar-item" (click)="setTitle('Техника для уборки фасоли')">Фасоль</a>
+    <a routerLink="/контакты" class="w3-button w3-bar-item" (click)="setTitle('Контакты')">Контакты</a>
+  </div>
+</div>
+<router-outlet (deactivate)="onDeactivate()"></router-outlet>
+<footer class="w3-center w3-black w3-padding" id=contact>
+  <p>
+    <span class="w3-show-inline-block">КФХ „Воля”, 08436, Украина, Киевская область, Переяслав-Хмельницкий р-н,</span>
+    <span class="w3-show-inline-block">Стовпьязкий сельсовет, урочище Чаплин, ул. Озерная, дом.1,</span>
+    <br>
+    <span class="w3-show-inline-block">Код 20597514, Р/р 26004000051182, МФО 300023, ПАТ «Укрсоцбанк»,</span>
+    <span class="w3-show-inline-block">Тел/факс (04567) 5-84-14, 5-35-10, e-mail: <u>{{ 'sfgvolia'+'@'+'ukr.net' }}</u></span>
+  </p>
+</footer>
